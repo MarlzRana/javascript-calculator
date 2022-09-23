@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Share+Tech+Mono&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #c2c2d6;
+}
+
+#calculator {
+  background: #1d2028;
+  width: 25%;
+  aspect-ratio: 4/5;
+  border-radius: 10px;
+}
+
+.calculator-display {
+  width: 100%;
+  height: 20%;
+  font-family: "Share Tech Mono", monospace;
+  padding: 5px;
+}
+.calculator-display > .output-display-container {
+  display: flex;
+  width: 100%;
+  height: 65%;
+  color: white;
+}
+.calculator-display > .output-display-container > .output-display {
+  margin-top: auto;
+  margin-left: auto;
+  font-size: 50px;
+  overflow: auto;
+}
+.calculator-display > .formula-display-container {
+  display: flex;
+  width: 100%;
+  height: 35%;
+  color: white;
+}
+.calculator-display > .formula-display-container > .formula-display {
+  margin-top: auto;
+  margin-left: auto;
+  font-size: 15px;
+  overflow: auto;
+}
+
+#button-pad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  height: 80%;
+  padding: 5px;
+}
+#button-pad > button {
+  border-radius: 10px;
+  background-color: #2f2e31;
+  color: white;
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 550;
+}
+#button-pad > #divide,
+#button-pad #multiply,
+#button-pad #subtract,
+#button-pad #add {
+  background-color: #464548;
+}
+#button-pad > #clear {
+  background-color: #462657;
+  grid-column: span 2;
+}
+#button-pad > #zero {
+  grid-column: span 2;
+}
+#button-pad > #equals {
+  grid-row: span 2;
+  background-color: #58306d;
+}
+
+@media only screen and (max-width: 1400px) {
+  #calculator {
+    width: 45%;
+  }
+
+  .calculator-display > .output-display-container > .output-display {
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #calculator {
+    width: 40%;
+  }
+
+  .calculator-display > .output-display-container > .output-display {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  #calculator {
+    width: 70%;
+  }
+
+  .calculator-display > .output-display-container > .output-display {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .calculator-display > .output-display-container > .output-display {
+    font-size: 25px;
+  }
+}

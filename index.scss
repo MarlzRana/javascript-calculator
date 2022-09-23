@@ -1,0 +1,153 @@
+//Font imports
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Share+Tech+Mono&display=swap");
+
+//SCSS global variables
+$page-background-color: #c2c2d6;
+$calculator-background-color: #1d2028;
+$general-button-color: #2f2e31;
+$operator-button-color: #464548;
+$equals-button-color: #58306d;
+$clear-button-color: #462657;
+
+//SCSS Mixins
+@mixin flex-row {
+  display: flex;
+}
+
+@mixin flex-row-center {
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+}
+
+//SCSS
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  @include flex-column-center;
+  height: 100vh;
+  width: 100vw;
+  background: $page-background-color;
+}
+
+#calculator {
+  background: $calculator-background-color;
+  width: 25%;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+}
+
+.calculator-display {
+  width: 100%;
+  height: 20%;
+  font-family: "Share Tech Mono", monospace;
+  padding: 5px;
+  > .output-display-container {
+    @include flex-row;
+    width: 100%;
+    height: 65%;
+    color: white;
+    > .output-display {
+      margin-top: auto;
+      margin-left: auto;
+      font-size: 50px;
+      overflow: auto;
+    }
+  }
+  > .formula-display-container {
+    @include flex-row;
+    width: 100%;
+    height: 35%;
+    color: white;
+    > .formula-display {
+      margin-top: auto;
+      margin-left: auto;
+      font-size: 15px;
+      overflow: auto;
+    }
+  }
+}
+
+#button-pad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  height: 80%;
+  padding: 5px;
+  > button {
+    border-radius: 10px;
+    background-color: $general-button-color;
+    color: white;
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 550;
+  }
+  > #divide,
+  #multiply,
+  #subtract,
+  #add {
+    background-color: $operator-button-color;
+  }
+  > #clear {
+    background-color: $clear-button-color;
+    grid-column: span 2;
+  }
+  > #zero {
+    grid-column: span 2;
+  }
+  > #equals {
+    grid-row: span 2;
+    background-color: $equals-button-color;
+  }
+}
+
+//Media queries to handle different screen sizes
+@media only screen and (max-width: 1400px) {
+  #calculator {
+    width: 45%;
+  }
+
+  .calculator-display > .output-display-container > .output-display {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #calculator {
+    width: 40%;
+  }
+
+  .calculator-display > .output-display-container > .output-display {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #calculator {
+    width: 70%;
+  }
+
+  .calculator-display > .output-display-container > .output-display {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .calculator-display > .output-display-container > .output-display {
+    font-size: 25px;
+  }
+}
