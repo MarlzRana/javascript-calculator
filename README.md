@@ -1,4 +1,4 @@
-# FreeCodeCamp - Front End Development Libraries - Random Quote Machine
+# FreeCodeCamp - Front End Development Libraries - JavaScript Calculator
 
 Created by Dineth Marlin Ranasinghe:
 
